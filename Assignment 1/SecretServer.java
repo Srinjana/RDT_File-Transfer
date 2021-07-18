@@ -1,11 +1,8 @@
 import java.net.*;
 import java.io.*;
-import java.util.*;
 
 public class SecretServer {
-
 	public static void main(String[] args) {
-
 		String[] secret = { "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN" };
 
 		DatagramSocket ss = null;
@@ -23,10 +20,8 @@ public class SecretServer {
 			int consignment = 0;
 			String strGreeting;
 			boolean end = true;
-			int result = 0; // number of bytes read
 
 			while (end) {
-
 				rd = new byte[100];
 				sd = new byte[512];
 
@@ -66,12 +61,11 @@ public class SecretServer {
 				} else {
 					consignment++;
 				}
-
 			} // while true
-
+		} catch (ArrayIndexOutOfBoundsException ex) {
+			System.out.println("Please pass in the port number as argument");
 		} catch (IOException ex) {
 			System.out.println(ex.getMessage());
 		}
-
 	}
 }
